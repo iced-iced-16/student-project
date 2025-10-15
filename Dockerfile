@@ -15,8 +15,12 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT
 # Copy the WAR from the build stage and rename to ROOT.war
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
+# Replace default server.xml with custom one (to disable shutdown port)
+COPY server.xml /usr/local/tomcat/conf/server.xml
+
 # Expose Tomcat port
 EXPOSE 8080
 
 # Start Tomcat
 CMD ["catalina.sh", "run"]
+
