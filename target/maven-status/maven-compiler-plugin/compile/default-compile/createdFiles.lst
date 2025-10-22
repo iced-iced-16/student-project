@@ -1,2 +1,2 @@
-com\example\HelloServlet.class
-com\example\JettyServer.class
+com/example/JettyServer.class
+com/example/HelloServlet.class
